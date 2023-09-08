@@ -1,5 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
+
 const {
     Sequelize,
     Model,
@@ -28,6 +30,17 @@ User.init({
 
 
 sequelize.sync();
+
+
+const corsOptions = {
+    origin: '*', // Replace with your frontend URL
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+
+  };
+  app.use(cors(corsOptions));
+
+
+
 
 
 app.use(bodyParser.urlencoded({
@@ -64,7 +77,8 @@ app.get('/users/:id', async (req, res) => {
 });
 
 
-app.put('/users/:id', async (req, res) => {
+app.put('/users/update/:id', async (req, res) => {
+
     const user = await User.findByPk(req.params.id);
     if (user) {
         await user.update(req.body);

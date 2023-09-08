@@ -9,6 +9,7 @@ async function store(user)
             accept: 'application.json',
             'Content-Type': 'application/json'
         },
+        mode:'cors',
         body: JSON.stringify({
             name: user.name,
             email: user.email,
@@ -35,4 +36,33 @@ async function getAll()
     return users.json()
 }
 
-export default {store, getAll}
+async function update(user, id)
+{
+    const url = 'http://localhost:3000/users/update/'+id;
+    // console.log(url);
+
+
+
+    let updatedUser = await fetch(url, {
+        method: 'PUT',
+        headers: {
+            accept: 'application.json',
+            'Content-Type': 'application/json'
+        },
+        body:JSON.stringify({
+            name: user.name,
+            email: user.email,
+            cin: user.cin
+        }),
+    })
+
+
+    return updatedUser.json();
+}
+
+
+async function deleteUser()
+{
+
+}
+export default {store, getAll, update, deleteUser}
