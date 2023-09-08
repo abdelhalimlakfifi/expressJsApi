@@ -34,18 +34,29 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(bodyParser.json());
-// app.use(console.log("sss"));
+
+
+
+// localhost:3000/users // GET
+
+
+app.get('/users', async (req, res) => {
+
+    const users = await User.findAll();
+    res.json(users);
+});
+
+
+
+// localhost:3000/users // POST
+
 
 app.post('/users', async (req, res) => {
-    console.log(req.body);
+
     const user = await User.create(req.body);
     res.json(user);
 });
 
-app.get('/users', async (req, res) => {
-    const users = await User.findAll();
-    res.json(users);
-});
 
 app.get('/users/:id', async (req, res) => {
     const user = await User.findByPk(req.params.id);
