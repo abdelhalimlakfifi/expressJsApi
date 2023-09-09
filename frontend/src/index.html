@@ -24,7 +24,7 @@
 
             <div class="flex justify-end">
                 <!-- Modal toggle -->
-                <button id="newArkadianButton"
+                <button id="newArkadianButton" onclick="toggleModal()"
                     class=" mb-4 bg-transparent border border-gray-500 hover:border-indigo-500 text-gray-500 hover:text-indigo-500 font-bold py-2 px-4 rounded-full">
                     New Arkadian
                 </button>
@@ -55,7 +55,7 @@
                     </thead>
                     <tbody id="tableBody">
 
-                        
+
                     </tbody>
                 </table>
             </div>
@@ -100,8 +100,7 @@
 
                         <form id="addForm">
                             <div class="mb-6">
-                                <label for="name"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                     name
                                 </label>
                                 <input type="text" id="name"
@@ -109,8 +108,7 @@
                                     placeholder="name@arkx.com" required>
                             </div>
                             <div class="mb-6">
-                                <label for="email"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                     Your e-mail
                                 </label>
                                 <input type="email" id="email"
@@ -119,15 +117,14 @@
                             </div>
 
                             <div class="mb-6">
-                                <label for="cin"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                <label for="cin" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                     C.I.N
                                 </label>
                                 <input type="text" id="cin"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     required>
                             </div>
-                            
+
                             <input type="hidden" id="type">
                             <input type="hidden" id="userId">
                             <button type="submit"
@@ -144,6 +141,7 @@
 
         </main>
     </div>
+    <script src="./assets/js/dom.js"></script>
 </body>
 
 </html>

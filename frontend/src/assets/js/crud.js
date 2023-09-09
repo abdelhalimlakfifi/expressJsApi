@@ -61,7 +61,7 @@ async function update(user, id)
 }
 
 
-async function deleteUser()
+async function deleteUser(id)
 {
 
 }
