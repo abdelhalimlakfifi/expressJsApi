@@ -31,14 +31,18 @@ function appendUsersToTable(users)
                     Edit
                 </button>
 
-                <button data-id='${user.id}'  onclick="deleteUser()" class="deleteUser bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded">
+                <button data-id='${user.id}'  class="deleteUser bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded">
                     Remove
                 </button>
             </td>
         </tr>
     `
     });
+}
 
+function deleteUser(id) 
+{
+    return id;
 }
 
 // Editing Modal
@@ -105,8 +109,8 @@ function addUserToTable(addeduser)
                     <td class="px-6 py-4">
                         ${addeduser.createdAt}
                     </td>
-                    <td class="px-6 py-4 flex">
-                        <button  class="modal-open bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                    <td class="px-6 py-4 flex gap-4">
+                        <button onclick="editModal(${addeduser.id})" class="modal-open bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
                             Edit
                         </button>
                         <button data-id="${addeduser.id}" class="bg-red-500 removeButton hover:bg-red-700 text-white py-2 px-4 rounded">

@@ -48,10 +48,17 @@ form.addEventListener("submit", (e) => {
 
 
 
-
 // Fetch All data and append it on the table
 crud.getAll().then((users) => {
     appendUsersToTable(users);
+    let deleteButtons = document.querySelectorAll('.deleteUser');
+
+    for (let i = 0; i < deleteButtons.length; i++) 
+    {
+        deleteButtons[i].addEventListener('click',(e) => {
+            deleteArkadian(e.target.getAttribute('data-id'))
+        });
+    }
 })
 // Fetch All data and append it on the table
 
@@ -59,3 +66,7 @@ crud.getAll().then((users) => {
 
 
 
+function deleteArkadian(id)
+{
+    console.log(id);
+}
