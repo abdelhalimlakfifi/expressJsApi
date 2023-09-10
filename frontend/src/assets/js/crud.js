@@ -1,3 +1,4 @@
+const token = 'xrzvb9itjkxrzvb9itjk'
 async function store(user)
 {
 
@@ -7,7 +8,8 @@ async function store(user)
         method: 'POST',
         headers: {
             accept: 'application.json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            authentication: token
         },
         mode:'cors',
         body: JSON.stringify({
@@ -29,9 +31,11 @@ async function store(user)
 async function getAll()
 {
     const url = 'http://localhost:3000/users';
+    // const token = 'xrzvb9itjkxrzvb9itjk'
+    
 
+    let users = await fetch(url,{headers: {authentication: token}});
 
-    let users = await fetch(url);
 
     return users.json()
 }
@@ -47,7 +51,8 @@ async function update(user, id)
         method: 'PUT',
         headers: {
             accept: 'application.json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            authentication: token
         },
         body:JSON.stringify({
             name: user.name,
@@ -68,6 +73,9 @@ async function deleteUser(id)
 
     let deletedUser = await fetch(url, {
         method: 'DELETE',
+        headers: {
+            authentication: token
+        },
     })
 
 

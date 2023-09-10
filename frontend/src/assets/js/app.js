@@ -33,6 +33,14 @@ form.addEventListener("submit", (e) => {
     } else {
         crud.store(user).then((addeduser) => {
 
+            if(addeduser.status === 403) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Not Authenticated!',
+                    text: 'Oops...',
+                })
+                return 
+            }
             toggleModal();
             addUserToTable(addeduser);
             clearForm()
@@ -50,6 +58,19 @@ form.addEventListener("submit", (e) => {
 
 // Fetch All data and append it on the table
 crud.getAll().then((users) => {
+
+    if(users.status === 403) {
+        document.getElementById('newArkadianButton').remove();
+        Swal.fire({
+            title: 'Ooops!',
+            text: 'Forbidden',
+            imageUrl: 'https://i.pinimg.com/originals/9e/97/fc/9e97fc7736c9093308512cddea19f99e.gif',
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+        })
+        return 
+    }
     appendUsersToTable(users);
     let deleteButtons = document.querySelectorAll('.deleteUser');
 
