@@ -53,9 +53,8 @@ crud.getAll().then((users) => {
     appendUsersToTable(users);
     let deleteButtons = document.querySelectorAll('.deleteUser');
 
-    for (let i = 0; i < deleteButtons.length; i++) 
-    {
-        deleteButtons[i].addEventListener('click',(e) => {
+    for (let i = 0; i < deleteButtons.length; i++) {
+        deleteButtons[i].addEventListener('click', (e) => {
             deleteArkadian(e.target.getAttribute('data-id'))
         });
     }
@@ -66,7 +65,26 @@ crud.getAll().then((users) => {
 
 
 
-function deleteArkadian(id)
-{
-    console.log(id);
+function deleteArkadian(id) {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+
+            crud.deleteUser(id).then((res) => {
+                removeElement(id);
+                Swal.fire(
+                    'Deleted!',
+                    'Arkadian deleted.',
+                    'success'
+                )
+            })
+        }
+    })
 }

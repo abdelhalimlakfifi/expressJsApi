@@ -40,10 +40,11 @@ function appendUsersToTable(users)
     });
 }
 
-function deleteUser(id) 
+function removeElement(id)
 {
-    return id;
+    document.getElementById('user_'+id).remove();
 }
+
 
 // Editing Modal
 function editModal(id)

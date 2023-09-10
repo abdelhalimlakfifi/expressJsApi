@@ -77,7 +77,7 @@ app.get('/users/:id', async (req, res) => {
 });
 
 
-app.put('/users/update/:id', async (req, res) => {
+app.put('/users/:id', async (req, res) => {
 
     const user = await User.findByPk(req.params.id);
     if (user) {

@@ -38,7 +38,7 @@ async function getAll()
 
 async function update(user, id)
 {
-    const url = 'http://localhost:3000/users/update/'+id;
+    const url = 'http://localhost:3000/users/'+id;
     // console.log(url);
 
 
@@ -63,6 +63,14 @@ async function update(user, id)
 
 async function deleteUser(id)
 {
+    const url = 'http://localhost:3000/users/'+id;
 
+
+    let deletedUser = await fetch(url, {
+        method: 'DELETE',
+    })
+
+
+    return deletedUser.json();
 }
 export default {store, getAll, update, deleteUser}
