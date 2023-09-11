@@ -3,7 +3,11 @@ const User = require('../models/User.js');
 
 
 const getAll = async (req, res, next) => {
-    const users = await User.findAll();
+    const users = await User.findAll(
+        {order: [["createdAt", "DESC"]],}
+    );
+
+    console.log(users);
     res.json(users);
 };
 
