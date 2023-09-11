@@ -1,4 +1,4 @@
-const token = '1gwgleaz3781gwgleaz378'
+const token = '8k3lrgu5kkk8k3lrgu5kkk'
 async function store(user)
 {
 
