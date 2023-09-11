@@ -7,7 +7,6 @@ const getAll = async (req, res, next) => {
         {order: [["createdAt", "DESC"]],}
     );
 
-    console.log(users);
     res.json(users);
 };
 
